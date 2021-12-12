@@ -4,11 +4,10 @@ import json
 from serial import Serial
 import requests
 
-url = "http://192.168.1.1:8086/write?db=home"
-room = "kitchen"
+import config
 
 def main():
-    port = Serial("/dev/ttyUSB0", 9600)
+    port = Serial(config.serial, config.baud)
     line = port.read_until()
     port.close()
 
@@ -16,10 +15,11 @@ def main():
     temp = data["TEMP"]
     hum = data["HUM"]
 
-    infline = f"""temp,room={room} value={temp}
-hum,room={room} value={hum}"""
+    infline = f"""temp,room={config.room} value={temp}
+hum,room={config.room} value={hum}"""
+    headers = {"Authorization": f"Token {config.token}"}
 
-    requests.post(url, infline)
+    res = requests.post(config.url, infline, headers=headers)
 
 if __name__ == "__main__":
     main()
