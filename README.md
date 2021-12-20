@@ -9,7 +9,7 @@ Parts:
 * Atmega328p "Arduino Nano"
 * DHT11 module
 
-The DHT11 sensors I bought have the signal pin in the middle, so I just solder it into the gnd/mosi/vcc side of the ISCP header and use pin 11.
+The DHT11 sensors I bought have the signal pin in the middle, so I just solder it into the gnd/mosi/vcc side of the ICSP header and use pin 11.
 
 ![schematic](doc/dht11toserial_schem.svg)
 
