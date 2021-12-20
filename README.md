@@ -18,7 +18,7 @@ The DHT11 sensors I bought have the signal pin in the middle, so I just solder i
 Compile and upload with platform.io.
 
 ## Polling utility
-post.py is a simple utility to read the next line from the serial port, parse the JSON and send the data to the influxdb server. Set appropriate values in config.py and cron it.
+postr.py is a simple utility to read the next line from the serial port, parse the JSON and send the data to the influxdb server. Set appropriate values in config.py and cron it. getr.py reads the device and prints to stdout to test the setup.
 
 ## Grafana output
 ![grafana](doc/graf.png)
